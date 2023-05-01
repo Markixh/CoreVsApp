@@ -1,5 +1,6 @@
 using CoreVsApp.Middleware;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using System.Runtime.CompilerServices;
 
 namespace CoreVsApp
@@ -15,6 +16,9 @@ namespace CoreVsApp
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Поддержка статических файлов
+            app.UseStaticFiles();
 
             //Добавляем компонент для логирования запросов с использованием метода Use.
             app.UseMiddleware<LoggingMiddleware>(app);
